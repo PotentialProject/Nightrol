@@ -4,10 +4,10 @@ using System.Text;
 
 public static class HMACHelper
 {
-    public static string ComputeHMAC(string json)
+    public static string ComputeHMAC(string json, string hmacKey)
     {
-        using  // using은 해당 코드가 끝나면 자동으로 메모리를 제거하는 역할을 함
-        (var hmac = new HMACSHA256(Encoding.UTF8.GetBytes(SecurityKeys.hmacKey)))
+        using
+        (var hmac = new HMACSHA256(Encoding.UTF8.GetBytes(hmacKey)))
         {
             byte[] hashBytes = 
                 hmac.ComputeHash(Encoding.UTF8.GetBytes(json));

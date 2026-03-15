@@ -7,13 +7,14 @@ public class PlayerData
     public int experience = 0;
     public int health = 100;
     public int mana = 50;
-    // Add more player-related fields as needed
+    // This Data is Temp Data. Add more player-related fields as needed
 }
 
 [Serializable]
 public class SettingsData
 {
     public float masterVolume = 0.5f;
+    // This Data is Temp Data. Add more settings-related fields as needed
 }
 
 [Serializable]

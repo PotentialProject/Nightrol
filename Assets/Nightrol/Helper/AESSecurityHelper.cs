@@ -6,27 +6,27 @@ using UnityEngine;
 public static class AESSecurityHelper
 {
 
-    public static void EncryptAndSave(byte[] dataToEncrypt, string filePath)
+    public static void EncryptAndSave(byte[] dataToEncrypt, string filePath, string aesKey, string aesIV)
     {
         using (Aes aes = Aes.Create())
         {
-            byte[] keyBytes = Encoding.UTF8.GetBytes(SecurityKeys.aesKey);
-            byte[] ivBytes = Encoding.UTF8.GetBytes(SecurityKeys.aesIV);
+            byte[] keyBytes = Encoding.UTF8.GetBytes(aesKey);
+            byte[] ivBytes = Encoding.UTF8.GetBytes(aesIV);
             
             if (keyBytes.Length != 16 && keyBytes.Length != 24 && keyBytes.Length != 32)
             {
-                Debug.LogError($"[AES] 키 길이가 {keyBytes.Length}바이트입니다. 반드시 16, 24, 32자 중 하나여야 합니다!");
+                Debug.LogError($"[AES] The key length is {keyBytes.Length} bytes. It must be one of 16, 24, or 32 characters!");
                 return;
             }
 
             if (ivBytes.Length != 16)
             {
-                Debug.LogError($"[AES] IV 길이가 {ivBytes.Length}바이트입니다. 반드시 16자여야 합니다!");
+                Debug.LogError($"[AES] The IV length is {ivBytes.Length} bytes. It must be exactly 16 characters!");
                 return;
             }
 
-            aes.Key = Encoding.UTF8.GetBytes(SecurityKeys.aesKey);
-            aes.IV = Encoding.UTF8.GetBytes(SecurityKeys.aesIV);
+            aes.Key = Encoding.UTF8.GetBytes(aesKey);
+            aes.IV = Encoding.UTF8.GetBytes(aesIV);
 
             byte[] encrypted = aes.CreateEncryptor()
                 .TransformFinalBlock(dataToEncrypt, 0, dataToEncrypt.Length);
@@ -36,12 +36,12 @@ public static class AESSecurityHelper
         }
     }
 
-    public static string DecryptAndLoad(byte[] encryptedData, string filePath)
+    public static string DecryptAndLoad(byte[] encryptedData, string filePath, string aesKey, string aesIV)
     {
         using (Aes aes = Aes.Create())
         {
-            aes.Key = Encoding.UTF8.GetBytes(SecurityKeys.aesKey);
-            aes.IV = Encoding.UTF8.GetBytes(SecurityKeys.aesIV);
+            aes.Key = Encoding.UTF8.GetBytes(aesKey);
+            aes.IV = Encoding.UTF8.GetBytes(aesIV);
 
             byte[] decrypted = aes.CreateDecryptor()
                 .TransformFinalBlock(encryptedData, 0, encryptedData.Length);
