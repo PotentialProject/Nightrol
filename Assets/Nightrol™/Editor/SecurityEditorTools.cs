@@ -6,7 +6,7 @@ namespace Utility.Nightrol
 {
     public class SecurityEditorTools
     {
-        [MenuItem("Nightrol™/Create GameDataManager")]
+        [MenuItem("Tools/Nightrol™/Create GameDataManager")]
         public static void CreateGameDataManager()
         {
             if (Object.FindAnyObjectByType<GameDataManager>() != null)
@@ -24,7 +24,7 @@ namespace Utility.Nightrol
             Debug.Log("<color=#007AFF>[Nightrol™] GameDataManager has been created.</color>");
         }
 
-        [MenuItem("Nightrol™/Make Key File")]
+        [MenuItem("Tools/Nightrol™/Make Key File")]
         public static void MakeKeyFile()
         {
             string path = "Assets/GameSecurityConfig.asset";
