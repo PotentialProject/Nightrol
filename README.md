@@ -1,3 +1,7 @@
+<img width="1600" height="500" alt="NIGHTROL™" src="https://github.com/user-attachments/assets/1d9e8e91-86b3-4d4b-bb52-62427702079e" />
+
+> © 2025-2026 POTENTIAL PROJECT™. All rights reserved. POTENTIAL PROJECT™ is a trademark of POTENTIAL PROJECT™.
+
 # End User License Agreement (EULA)
 
 This Agreement is a legal contract between the developer (hereinafter referred to as the **"Licensor"**) of this software (hereinafter referred to as the **"Module"**) and the developer (hereinafter referred to as the **"User"**) who uses it.
